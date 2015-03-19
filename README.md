@@ -35,6 +35,25 @@ Defaults:
 * `:dockerfile` points to `Dockerfile`
 * `:build-dir` points to the project's root
 
+## Releasing your docker images
+
+You can use Leiningen to handle your technical release process. In order to do that with your Docker image instead of
+your plain jar file, configure your release tasks similar to that:
+
+```clojure
+:release-tasks [["vcs" "assert-committed"]
+                ["change" "version" "leiningen.release/bump-version" "release"]
+                ["vcs" "commit"]
+                ["vcs" "tag"]
+                ["clean"]
+                ["uberjar"]
+                ["docker" "build"]
+                ["docker" "push"]
+                ["change" "version" "leiningen.release/bump-version"]
+                ["vcs" "commit"]
+                ["vcs" "push"]]
+```
+
 ## License
 
 Copyright (c) 2015, Tobias Sarnowski
