@@ -1,4 +1,4 @@
-# docker-deploy
+# lein-docker
 
 A Leiningen plugin to build and deploy [Docker](https://www.docker.com/) images.
 
