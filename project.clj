@@ -1,4 +1,4 @@
-(defproject io.sarnowski/lein-docker "1.0.0-SNAPSHOT"
+(defproject io.sarnowski/lein-docker "1.0.0"
   :description "A leiningen plugin to build docker images and deploy them."
   :url "https://github.com/sarnowski/lein-docker"
 
