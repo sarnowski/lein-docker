@@ -13,7 +13,7 @@
    Commands:
      'build' builds your docker image
      'push' pushes your docker image"
-  [project command]
+  [project command & [image-name]]
 
   (let [command (keyword command)]
 
@@ -22,7 +22,8 @@
       (main/exit 1))
 
     (let [config (:docker project)
-          image-name (or (:image-name config)
+          image-name (or image-name
+                         (:image-name config)
                          (str (:name project)))
           image-version (:version project)
           image (str image-name ":" image-version)
