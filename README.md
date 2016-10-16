@@ -25,6 +25,7 @@ You can add the following configuration options at the root of your `project.clj
 
 ```clojure
 :docker {:image-name "myregistry.example.org/myimage"
+         :tags ["%s" "latest"] ; %s will splice the project version into the tag
          :dockerfile "target/dist/Dockerfile"
          :build-dir  "target"}
 ```
@@ -32,6 +33,7 @@ You can add the following configuration options at the root of your `project.clj
 Defaults:
 
 * `:image-name` is your project's name (without the group ID)
+* `:tags` is your project's version
 * `:dockerfile` points to `Dockerfile`
 * `:build-dir` points to the project's root
 
