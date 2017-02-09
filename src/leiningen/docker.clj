@@ -25,7 +25,8 @@
           image-name (or image-name
                          (:image-name config)
                          (str (:name project)))
-          image-version (:version project)
+          image-version (or (:tag config)
+                            (:version project))
           image (str image-name ":" image-version)
           build-dir (or (:build-dir config)
                         (:root project))
